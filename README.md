@@ -1,5 +1,8 @@
 # BitNet_LLM_Virtual_Coworker_Builder
 
+![bitnet_llm_vc_builder_icon](https://github.com/user-attachments/assets/76732396-48c9-4537-abdb-ece45ee5bd42)
+
+
 A powerful and efficient AI virtual co-worker framework built on top of BitNet's 1-bit quantized language models.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
