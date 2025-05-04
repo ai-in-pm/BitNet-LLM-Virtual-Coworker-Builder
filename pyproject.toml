@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitnet_vc_builder"
+version = "0.2.0"
+description = "A powerful and efficient AI virtual co-worker framework built on top of BitNet's 1-bit quantized language models"
+readme = "README.md"
+authors = [
+    {name = "BitNet Virtual Co-worker Builder Team", email = "example@example.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["ai", "llm", "bitnet", "virtual co-worker", "team", "collaboration"]
+dependencies = [
+    "numpy>=1.20.0",
+    "requests>=2.25.0",
+    "tqdm>=4.60.0",
+    "pyyaml>=6.0",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+"Homepage" = "https://github.com/bitnet/bitnet-vc-builder"
+"Bug Tracker" = "https://github.com/bitnet/bitnet-vc-builder/issues"
+
+[project.scripts]
+bitnet-vc = "bitnet_vc_builder.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

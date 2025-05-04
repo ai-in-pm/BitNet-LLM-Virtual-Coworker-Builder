@@ -1,0 +1,131 @@
+# BitNet Virtual Co-worker Builder Windows Production Configuration
+
+# Server configuration
+server:
+  host: "0.0.0.0"  # Host to bind the API server to
+  port: 8000       # Port to run the API server on
+  debug: false     # Whether to run the server in debug mode
+  workers: 8       # Number of worker processes for production
+  timeout: 120     # Request timeout in seconds
+  cors_origins:    # CORS origins
+    - "https://bitnet-vc-builder.ai"
+    - "https://app.bitnet-vc-builder.ai"
+    - "http://localhost:3000"
+  enable_docs: false  # Disable API documentation in production
+
+# BitNet configuration
+bitnet:
+  path: "C:\\Users\\djjme\\OneDrive\\Desktop\\CC-Directory\\BitNet-main"  # Path to BitNet installation
+  models_dir: "C:\\BitNet-VC-Builder\\data\\models"  # Production models directory
+  cache_dir: "C:\\BitNet-VC-Builder\\data\\cache"    # Production cache directory
+  enable_optimizations: true  # Enable BitNet optimizations
+
+# Default model configuration
+model:
+  kernel_type: "i2_s"       # Default kernel type (i2_s, i2_m, i2_l)
+  num_threads: 8            # More threads for production
+  context_size: 4096        # Larger context size for production
+  temperature: 0.7          # Default temperature
+  top_p: 0.9                # Default top_p
+  top_k: 40                 # Default top_k
+  repetition_penalty: 1.1   # Default repetition penalty
+  max_tokens: 1024          # Larger max tokens for production
+  stop_sequences: []        # Default stop sequences
+  default_model: "BitNet-b1.58-2B-4T"  # Default model to use
+
+# Memory configuration
+memory:
+  max_items: 200            # More memory items for production
+  max_context_length: 4000  # Larger context length for production
+  recency_bias: 0.7         # Recency bias (0.0-1.0)
+  enable_persistent: true   # Enable persistent memory in production
+  persistent_path: "C:\\BitNet-VC-Builder\\data\\memory"  # Production memory path
+
+# Team configuration
+team:
+  default_collaboration_mode: "SEQUENTIAL"  # Default collaboration mode
+  max_parallel_tasks: 8                     # More parallel tasks for production
+  enable_conflict_resolution: true          # Enable conflict resolution
+  conflict_resolution_strategy: "voting"    # Conflict resolution strategy
+  enable_task_prioritization: true          # Enable task prioritization
+  enable_performance_tracking: true         # Enable performance tracking
+  max_team_size: 20                         # Larger team size for production
+
+# Logging configuration
+logging:
+  level: "INFO"                            # Use INFO level for better visibility
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "C:\\BitNet-VC-Builder\\logs\\app.log"  # Production log path
+  max_size: 52428800                       # 50 MB log size
+  backup_count: 30                         # 30 backup logs for longer history
+  console: true                            # Enable console logging for easier debugging
+  enable_request_logging: true             # Enable request logging for monitoring
+  log_rotation: "daily"                    # Rotate logs daily
+  error_log: "C:\\BitNet-VC-Builder\\logs\\error.log"  # Separate error log
+  performance_log: "C:\\BitNet-VC-Builder\\logs\\performance.log"  # Performance log
+
+# UI configuration
+ui:
+  theme: "light"            # Default theme
+  max_history_items: 100    # More history items for production
+  auto_refresh: true        # Enable auto-refresh
+  refresh_interval: 10      # Longer refresh interval for production
+  enable_animations: true   # Enable animations
+  enable_tooltips: true     # Enable tooltips
+  default_view: "grid"      # Default view mode
+  code_theme: "github"      # Code syntax highlighting theme
+
+# Tools configuration
+tools:
+  # Web search tool
+  web_search:
+    enabled: true
+    api_key: "${WEB_SEARCH_API_KEY}"  # Use environment variable
+    max_results: 10                   # More results for production
+    search_engine: "google"           # Default search engine
+
+  # Weather tool
+  weather:
+    enabled: true
+    api_key: "${WEATHER_API_KEY}"     # Use environment variable
+    units: "metric"                   # Default units
+    default_location: null            # No default location
+
+  # Code generation tool
+  code_generation:
+    enabled: true
+    languages:                        # Supported languages
+      - "python"
+      - "javascript"
+      - "java"
+      - "c++"
+      - "rust"
+      - "go"                          # Additional language for production
+      - "typescript"                  # Additional language for production
+    include_comments: true            # Include comments
+    include_tests: true               # Include tests
+
+  # Data analysis tool
+  data_analysis:
+    enabled: true
+    max_file_size: 52428800           # 50 MB file size for production
+    supported_formats:                # Supported formats
+      - "csv"
+      - "json"
+      - "excel"
+      - "parquet"                     # Additional format for production
+      - "feather"                     # Additional format for production
+    enable_visualization: true        # Enable visualization
+
+  # Document processing tool
+  document_processing:
+    enabled: true
+    max_file_size: 52428800           # 50 MB file size for production
+    supported_formats:                # Supported formats
+      - "pdf"
+      - "docx"
+      - "txt"
+      - "markdown"
+      - "html"                        # Additional format for production
+      - "epub"                        # Additional format for production
+    enable_ocr: true                  # Enable OCR in production

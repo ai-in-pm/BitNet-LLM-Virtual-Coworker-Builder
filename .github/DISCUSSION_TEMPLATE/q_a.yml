@@ -1,0 +1,69 @@
+title: "[Q&A] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Question and Answer
+        
+        Use this template to ask a question about BitNet_LLM_Virtual_Coworker_Builder.
+        
+        Before asking a question, please check if it has already been answered in the documentation or previous discussions.
+  
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to know about BitNet_LLM_Virtual_Coworker_Builder?
+      placeholder: Please provide a clear and concise question.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Please provide any relevant context for your question.
+      placeholder: Include any background information, what you're trying to accomplish, or what you've already tried.
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What category does your question fall into?
+      options:
+        - Installation
+        - Configuration
+        - Usage
+        - API
+        - UI
+        - Production Setup
+        - Monitoring
+        - Backup
+        - Development
+        - Other
+    validations:
+      required: true
+  
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of BitNet_LLM_Virtual_Coworker_Builder are you using?
+      placeholder: e.g., 0.2.0
+    validations:
+      required: false
+  
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Please provide information about your environment.
+      placeholder: |
+        - OS: [e.g. Windows 10, Ubuntu 20.04]
+        - Python Version: [e.g. 3.8.10]
+        - Node.js Version (if applicable): [e.g. 14.17.0]
+    validations:
+      required: false

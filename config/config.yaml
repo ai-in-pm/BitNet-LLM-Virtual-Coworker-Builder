@@ -1,0 +1,189 @@
+# BitNet Virtual Co-worker Builder Configuration
+
+# Server configuration
+server:
+  host: "0.0.0.0"  # Host to bind the API server to
+  port: 8000       # Port to run the API server on
+  debug: false     # Whether to run the server in debug mode
+  workers: 4       # Number of worker processes
+  timeout: 60      # Request timeout in seconds
+  cors_origins:    # CORS origins
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+  enable_docs: true  # Whether to enable API documentation
+
+# BitNet configuration
+bitnet:
+  path: null                # Path to BitNet installation (null means auto-detect)
+  models_dir: "models"      # Directory to store BitNet models
+  cache_dir: "cache"        # Directory to store cache files
+  enable_optimizations: true  # Whether to enable BitNet optimizations
+
+# Default model configuration
+model:
+  kernel_type: "i2_s"       # Default kernel type (i2_s, i2_m, i2_l)
+  num_threads: 4            # Default number of threads
+  context_size: 2048        # Default context size
+  temperature: 0.7          # Default temperature
+  top_p: 0.9                # Default top_p
+  top_k: 40                 # Default top_k
+  repetition_penalty: 1.1   # Default repetition penalty
+  max_tokens: 512           # Default maximum tokens to generate
+  stop_sequences: []        # Default stop sequences
+
+# Memory configuration
+memory:
+  max_items: 100            # Maximum number of items to store in memory
+  max_context_length: 2000  # Maximum context length
+  recency_bias: 0.7         # Recency bias (0.0-1.0)
+  enable_persistent: false  # Whether to enable persistent memory
+  persistent_path: "memory" # Path to store persistent memory
+
+# Team configuration
+team:
+  default_collaboration_mode: "SEQUENTIAL"  # Default collaboration mode (SEQUENTIAL, HIERARCHICAL, PARALLEL)
+  max_parallel_tasks: 4                     # Maximum number of parallel tasks
+  enable_conflict_resolution: true          # Whether to enable conflict resolution
+  conflict_resolution_strategy: "voting"    # Conflict resolution strategy (voting, consensus, authority)
+  enable_task_prioritization: true          # Whether to enable task prioritization
+  enable_performance_tracking: true         # Whether to enable performance tracking
+  max_team_size: 10                         # Maximum number of virtual co-workers in a team
+
+# Logging configuration
+logging:
+  level: "INFO"                           # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # Log format
+  file: "logs/bitnet_vc_builder.log"      # Log file path
+  max_size: 10485760                      # Maximum log file size (10 MB)
+  backup_count: 5                         # Number of backup log files
+  console: true                           # Whether to log to console
+  enable_request_logging: true            # Whether to log API requests
+
+# UI configuration
+ui:
+  theme: "light"            # UI theme (light, dark, system)
+  max_history_items: 50     # Maximum number of history items to display
+  auto_refresh: true        # Whether to automatically refresh data
+  refresh_interval: 5       # Refresh interval in seconds
+  enable_animations: true   # Whether to enable animations
+  enable_tooltips: true     # Whether to enable tooltips
+  default_view: "grid"      # Default view mode (grid, table)
+  code_theme: "github"      # Code syntax highlighting theme
+
+# Tools configuration
+tools:
+  # Web search tool
+  web_search:
+    enabled: true
+    api_key: null           # API key for web search (if null, uses a mock implementation)
+    max_results: 5          # Maximum number of results to return
+    search_engine: "google" # Search engine to use (google, bing, duckduckgo)
+
+  # Weather tool
+  weather:
+    enabled: true
+    api_key: null           # API key for weather API (if null, uses a mock implementation)
+    units: "metric"         # Units (metric, imperial)
+    default_location: null  # Default location
+
+  # Code generation tool
+  code_generation:
+    enabled: true
+    languages:              # Supported languages
+      - "python"
+      - "javascript"
+      - "java"
+      - "c++"
+      - "rust"
+    include_comments: true  # Whether to include comments in generated code
+    include_tests: true     # Whether to include tests in generated code
+
+  # Data analysis tool
+  data_analysis:
+    enabled: true
+    max_file_size: 10485760  # Maximum file size (10 MB)
+    supported_formats:       # Supported file formats
+      - "csv"
+      - "json"
+      - "excel"
+    enable_visualization: true  # Whether to enable data visualization
+
+  # Document processing tool
+  document_processing:
+    enabled: true
+    max_file_size: 10485760  # Maximum file size (10 MB)
+    supported_formats:       # Supported file formats
+      - "pdf"
+      - "docx"
+      - "txt"
+      - "markdown"
+    enable_ocr: false        # Whether to enable OCR for images
+
+# Virtual co-workers configuration
+virtual_coworkers:
+  # Default virtual co-worker templates
+  templates:
+    # Research virtual co-worker
+    researcher:
+      name: "Researcher"
+      description: "A virtual co-worker that specializes in research and information gathering"
+      tools:
+        - "web_search"
+        - "wikipedia"
+      system_prompt: "You are a research virtual co-worker. Your goal is to find accurate and relevant information on any topic. You have access to web search and Wikipedia tools to help you gather information."
+
+    # Analyst virtual co-worker
+    analyst:
+      name: "Analyst"
+      description: "A virtual co-worker that specializes in data analysis and interpretation"
+      tools:
+        - "data_analysis"
+        - "calculator"
+      system_prompt: "You are an analyst virtual co-worker. Your goal is to analyze data and provide insights. You have access to data analysis and calculator tools to help you analyze data."
+
+    # Writer virtual co-worker
+    writer:
+      name: "Writer"
+      description: "A virtual co-worker that specializes in writing clear and concise content"
+      tools:
+        - "document_processing"
+      system_prompt: "You are a writer virtual co-worker. Your goal is to create high-quality written content. You have access to document processing tools to help you create and edit documents."
+
+    # Coder virtual co-worker
+    coder:
+      name: "Coder"
+      description: "A virtual co-worker that specializes in writing and reviewing code"
+      tools:
+        - "code_generation"
+      system_prompt: "You are a coder virtual co-worker. Your goal is to write clean, efficient, and well-documented code. You have access to code generation tools to help you write code in various programming languages."
+
+# Teams configuration
+teams:
+  # Default team templates
+  templates:
+    # Research team
+    research_team:
+      name: "ResearchTeam"
+      description: "A team that researches topics, analyzes data, and writes reports"
+      virtual_coworkers:
+        - "Researcher"
+        - "Analyst"
+        - "Writer"
+      collaboration_mode: "SEQUENTIAL"
+      enable_conflict_resolution: true
+      enable_task_prioritization: true
+      enable_performance_tracking: true
+
+    # Development team
+    development_team:
+      name: "DevelopmentTeam"
+      description: "A team that designs, implements, and tests software"
+      virtual_coworkers:
+        - "Researcher"
+        - "Coder"
+        - "Analyst"
+      collaboration_mode: "HIERARCHICAL"
+      coordinator_agent: "Researcher"
+      enable_conflict_resolution: true
+      enable_task_prioritization: true
+      enable_performance_tracking: true

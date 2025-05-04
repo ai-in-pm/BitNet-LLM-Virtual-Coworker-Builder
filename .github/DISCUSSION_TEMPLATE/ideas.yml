@@ -1,0 +1,90 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Ideas and Feedback
+        
+        Use this template to share ideas and feedback for BitNet_LLM_Virtual_Coworker_Builder.
+        
+        We value your input and are always looking for ways to improve the framework.
+  
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea or Feedback
+      description: What idea or feedback do you have for BitNet_LLM_Virtual_Coworker_Builder?
+      placeholder: Please provide a clear and concise description of your idea or feedback.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does your idea solve?
+      placeholder: Describe the problem or pain point that your idea addresses.
+    validations:
+      required: false
+  
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you implement your idea?
+      placeholder: Provide details on how your idea could be implemented.
+    validations:
+      required: false
+  
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: What are the benefits of your idea?
+      placeholder: Describe how your idea would benefit users of BitNet_LLM_Virtual_Coworker_Builder.
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What category does your idea fall into?
+      options:
+        - Core Functionality
+        - User Interface
+        - Documentation
+        - Performance
+        - Security
+        - Production Setup
+        - Monitoring
+        - Backup
+        - Community
+        - Other
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      description: How impactful do you think your idea is?
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort
+      description: How much effort do you think your idea would require to implement?
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: false

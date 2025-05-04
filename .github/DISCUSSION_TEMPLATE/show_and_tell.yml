@@ -1,0 +1,74 @@
+title: "[Show and Tell] "
+labels: ["show-and-tell"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Show and Tell
+        
+        Use this template to share what you've built with BitNet_LLM_Virtual_Coworker_Builder.
+        
+        We're excited to see what you've created!
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What have you built with BitNet_LLM_Virtual_Coworker_Builder?
+      placeholder: Please provide a clear and concise description of your project.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Videos
+      description: Please share screenshots or videos of your project.
+      placeholder: You can drag and drop images or videos here, or provide links to them.
+    validations:
+      required: false
+  
+  - type: textarea
+    id: code
+    attributes:
+      label: Code
+      description: If your project is open source, please share a link to the code.
+      placeholder: |
+        ```python
+        # Example code
+        from bitnet_vc_builder import BitNetVirtualCoworker, BitNetModel, Tool
+
+        # Initialize BitNet model
+        model = BitNetModel(model_path="models/bitnet-b1.58-2b")
+
+        # Create virtual co-worker
+        coworker = BitNetVirtualCoworker(
+            model=model,
+            name="AssistantCoworker",
+            description="A helpful virtual co-worker"
+        )
+
+        # Run virtual co-worker on a task
+        result = coworker.run("What is the capital of France?")
+        print(result)
+        ```
+    validations:
+      required: false
+  
+  - type: textarea
+    id: challenges
+    attributes:
+      label: Challenges and Solutions
+      description: What challenges did you face and how did you solve them?
+      placeholder: Share any interesting challenges you encountered and how you overcame them.
+    validations:
+      required: false
+  
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Do you have any feedback or suggestions for BitNet_LLM_Virtual_Coworker_Builder?
+      placeholder: We'd love to hear your thoughts on how we can improve the framework.
+    validations:
+      required: false
